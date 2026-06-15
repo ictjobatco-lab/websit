@@ -135,7 +135,7 @@
     <div class="band reveal">
       <h2>پروژه‌ای در ذهن داری؟</h2>
       <p>درخواستت را بفرست. بررسی می‌کنم و خیلی زود جواب می‌گیری.</p>
-      <button class="btn btn-primary" onclick="alert('در نسخهٔ نهایی، این به فرم درخواست متصل می‌شود.')">ارسال درخواست همکاری
+      <button class="btn btn-primary" onclick="openModal()">ارسال درخواست همکاری
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#04140c" stroke-width="2.4"><path d="M14 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
@@ -153,6 +153,41 @@
   </div>
 </footer>
 
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-head">
+      <div class="sec-eyebrow">همکاری</div>
+      <h2>ارسال درخواست</h2>
+      <p>فرم را پر کنید، خیلی زود پاسخ می‌گیرید.</p>
+    </div>
+    <form id="contactForm">
+      <div class="field">
+        <label>نام و نام خانوادگی</label>
+        <input type="text" name="name" placeholder="مثال: علی احمدی" required>
+      </div>
+      <div class="field">
+        <label>ایمیل</label>
+        <input type="email" name="email" placeholder="email@example.com" required>
+      </div>
+      <div class="field">
+        <label>شماره تماس</label>
+        <input type="tel" name="phone" placeholder="09xxxxxxxxx">
+      </div>
+      <div class="field">
+        <label>شرح نیاز</label>
+        <textarea name="description" rows="4" placeholder="پروژه‌ای که در ذهن دارید را توضیح دهید..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+        ارسال درخواست
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#04140c" stroke-width="2.4"><path d="M14 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

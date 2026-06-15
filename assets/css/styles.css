@@ -170,3 +170,22 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:50px
 .reveal.in{opacity:1;transform:none}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===== modal ===== */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:#000000bb;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{position:relative;background:linear-gradient(160deg,#0f2419,#0a1810);border:1px solid var(--line);border-radius:28px;padding:52px 48px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;transform:translateY(28px) scale(.97);transition:.4s var(--ease)}
+.modal-overlay.open .modal{transform:none}
+.modal-close{position:absolute;top:18px;left:18px;background:#0e2018;border:1px solid var(--line);color:var(--muted);width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:17px;display:grid;place-items:center;transition:.25s}
+.modal-close:hover{border-color:var(--emerald);color:var(--emerald)}
+.modal-head{margin-bottom:34px}
+.modal-head h2{font-size:26px;font-weight:800;margin-bottom:8px}
+.modal-head p{color:var(--muted);font-size:15px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.field label{font-size:13.5px;font-weight:600;color:var(--silver)}
+.field input,.field textarea{background:#0b1c14;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--text);font-family:inherit;font-size:15px;transition:.25s;resize:vertical;outline:none}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+.field input:focus,.field textarea:focus{border-color:var(--emerald);box-shadow:0 0 0 3px #37d08a1a}
+.form-msg{margin-top:14px;font-size:14px;text-align:center;min-height:20px}
+.form-msg.ok{color:var(--emerald)}
+.form-msg.err{color:#e87070}

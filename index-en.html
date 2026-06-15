@@ -135,7 +135,7 @@
     <div class="band reveal">
       <h2>Got a project in mind?</h2>
       <p>Send your request. I'll review it and get back to you soon.</p>
-      <button class="btn btn-primary" onclick="alert('In the final version, this connects to the request form.')">Send a request
+      <button class="btn btn-primary" onclick="openModal()">Send a request
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#04140c" stroke-width="2.4"><path d="M10 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
@@ -153,6 +153,41 @@
   </div>
 </footer>
 
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-head">
+      <div class="sec-eyebrow">CONTACT</div>
+      <h2>Send a request</h2>
+      <p>Fill the form and I'll get back to you soon.</p>
+    </div>
+    <form id="contactForm">
+      <div class="field">
+        <label>Full name</label>
+        <input type="text" name="name" placeholder="e.g. John Smith" required>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="email@example.com" required>
+      </div>
+      <div class="field">
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="+1 xxx xxx xxxx">
+      </div>
+      <div class="field">
+        <label>Describe your need</label>
+        <textarea name="description" rows="4" placeholder="Tell me about the project you have in mind..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+        Send request
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#04140c" stroke-width="2.4"><path d="M10 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
