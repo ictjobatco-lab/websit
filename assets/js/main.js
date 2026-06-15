@@ -43,6 +43,20 @@ document.getElementById('contactForm').addEventListener('submit', async function
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 
+const navLinks=document.querySelectorAll('.nav-links a:not(.lang)');
+const sections=document.querySelectorAll('section[id], header');
+const sectionObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const id=e.target.id||'';
+      const active=document.querySelector(`.nav-links a[href="#${id}"]`);
+      if(active)active.classList.add('active');
+    }
+  });
+},{threshold:.4});
+sections.forEach(s=>sectionObserver.observe(s));
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.16});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 

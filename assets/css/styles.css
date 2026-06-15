@@ -54,11 +54,12 @@ nav.scrolled{backdrop-filter:blur(16px);background:#07120Dcc;border-bottom:1px s
 .logo-mark svg{width:20px;height:20px}
 .brand b{font-size:16px}
 .brand small{display:block;font-size:9.5px;letter-spacing:3px;color:var(--emerald);font-weight:500}
-.nav-links{display:flex;gap:36px;align-items:center;font-size:14.5px;color:var(--muted)}
+.nav-links{display:flex;gap:36px;align-items:center;font-size:14.5px;color:var(--muted);cursor:pointer}
 .nav-links a{transition:color .25s;position:relative}
 .nav-links a:not(.lang):hover{color:var(--text)}
 .nav-links a:not(.lang)::after{content:"";position:absolute;bottom:-6px;right:0;width:0;height:1.5px;background:var(--emerald);transition:width .3s}
-.nav-links a:not(.lang):hover::after{width:100%}
+.nav-links a:not(.lang):hover::after,.nav-links a.active::after{width:100%}
+.nav-links a.active{color:var(--text)}
 .lang{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:10px;padding:7px 13px;font-size:13px;color:var(--silver);transition:.25s}
 .lang:hover{border-color:var(--emerald);color:var(--emerald)}
 @media(max-width:860px){.nav-links a:not(.lang){display:none}}
@@ -115,7 +116,7 @@ section{position:relative;z-index:2;padding:104px 0}
 
 /* ===== services ===== */
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.svc{position:relative;background:linear-gradient(160deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:22px;padding:38px;overflow:hidden;transition:.45s var(--ease)}
+.svc{position:relative;background:linear-gradient(160deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:22px;padding:38px;overflow:hidden;transition:.3s var(--ease);cursor:pointer}
 .svc:hover{transform:translateY(-5px);border-color:var(--emerald-deep)}
 .svc::before{content:"";position:absolute;top:0;right:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--emerald),transparent);opacity:0;transition:.4s}
 .svc:hover::before{opacity:1}
@@ -168,6 +169,8 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:50px
 
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:4px}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
